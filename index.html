@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WreckedBoat LLP — IT Services</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f8fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --primary:#0b63ff;
+      --accent:#00b894;
+      --nav:#071532;
+      --glass: rgba(255,255,255,0.75);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* Header / Navbar */
+    header{
+      background: linear-gradient(90deg,var(--nav), #0a2540);
+      color:white;
+      position:sticky;
+      top:0;
+      z-index:50;
+      box-shadow: 0 6px 18px rgba(8,20,40,0.15);
+    }
+    .nav-inner{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 20px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo {
+      width:44px;height:44px;border-radius:8px;
+      background:linear-gradient(135deg,var(--primary),#4f46e5);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow: 0 6px 18px rgba(11,99,255,0.18);
+      font-size:18px;
+    }
+    nav a{
+      color:rgba(255,255,255,0.95);
+      text-decoration:none;
+      margin-left:18px;
+      font-weight:600;
+      font-size:14px;
+    }
+    .cta{
+      background:white;color:var(--nav);padding:8px 14px;border-radius:8px;font-weight:700;text-decoration:none;
+      box-shadow: 0 6px 16px rgba(11,99,255,0.12)
+    }
+
+    /* Hero */
+    .hero{
+      max-width:1100px;margin:28px auto 0;padding:28px 20px 44px;display:grid;grid-template-columns:1fr;
+      gap:24px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+      border-radius:14px;padding:36px;box-shadow: 0 10px 30px rgba(12,32,63,0.08);
+      display:flex;gap:28px;align-items:center;flex-wrap:wrap;
+    }
+    .hero-text{flex:1;min-width:260px}
+    .hero-text h1{margin:0;font-size:28px;color:var(--nav);line-height:1.05}
+    .hero-text p{margin:12px 0;color:var(--muted)}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{
+      background: linear-gradient(90deg,var(--primary),#4f46e5);
+      color:white;padding:12px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
+      box-shadow: 0 8px 24px rgba(11,99,255,0.14);text-decoration:none;
+    }
+    .btn-outline{
+      background:transparent;border:2px solid rgba(11,99,255,0.12);padding:10px 16px;border-radius:10px;color:var(--nav);text-decoration:none;font-weight:700;
+    }
+
+    /* Services grid */
+    .section{
+      max-width:1100px;margin:28px auto;padding:0 20px 48px;
+    }
+    h2.section-title{font-size:20px;margin:0 0 18px;color:var(--nav)}
+    .services{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;
+    }
+    .card{
+      background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(12,32,63,0.06);
+      transition:transform .28s ease, box-shadow .28s ease;display:flex;gap:12px;align-items:flex-start;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(12,32,63,0.09)}
+    .icon{
+      min-width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#00cec9);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow: inset 0 -6px 18px rgba(0,0,0,0.06);
+    }
+    .card-title{font-weight:700;margin:0;color:var(--nav);font-size:15px}
+    .card-desc{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* Testimonials (simple) */
+    .testimonials{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+    .testimonial{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.9));padding:16px;border-radius:12px;box-shadow:0 8px 18px rgba(12,32,63,0.04)}
+    .by{font-weight:700;color:var(--nav);font-size:13px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:12px}
+    .contact-info p{margin:6px 0;color:var(--muted)}
+    form{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 22px rgba(12,32,63,0.06)}
+    label{display:block;font-weight:600;font-size:13px;margin-bottom:6px;color:var(--nav)}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin-bottom:12px;font-size:14px;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .submit{background:var(--primary);color:white;padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+
+    footer{
+      margin-top:28px;background:transparent;padding:28px 20px;color:var(--muted);
+      display:flex;justify-content:center;
+    }
+
+    /* Responsive */
+    @media (max-width:880px){
+      .contact-grid{grid-template-columns:1fr}
+      .hero-card{padding:20px}
+      .brand .logo{width:40px;height:40px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="logo">WB</div>
+      <div>
+        <div style="font-weight:700">WreckedBoat LLP</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.85);margin-top:2px">Reliable Technology Solutions</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-card">
+      <div style="flex:1" class="hero-text">
+        <h1 id="hero-title">Modern IT & Cloud Solutions that scale with your business</h1>
+        <p>We build high-performance websites, manage infrastructure, secure systems, and automate workflows so you can focus on growth.</p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">Request Consultation</a>
+          <a class="btn-outline" href="#services">See Services</a>
+        </div>
+      </div>
+
+      <div style="min-width:220px;display:flex;flex-direction:column;gap:10px;align-items:stretch">
+        <div style="background:linear-gradient(135deg,#f8fafc,#ffffff);padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(12,32,63,0.04)">
+          <strong style="display:block">Established</strong>
+          <span style="color:var(--muted)">Since 2019 • Trusted partners</span>
+        </div>
+        <div style="background:linear-gradient(135deg,#fff,#f7fbff);padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(12,32,63,0.04)">
+          <strong style="display:block">Happy Clients</strong>
+          <span style="color:var(--muted)">100+ projects delivered</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section" aria-labelledby="about-title">
+    <h2 class="section-title" id="about-title">About Us</h2>
+    <p style="color:var(--muted);margin:8px 0 18px;max-width:900px">
+      WreckedBoat LLP blends technical expertise with pragmatic business thinking to deliver web applications, secure infrastructure, and cloud-first solutions tailored to your needs. We are fast, reliable, and focused on outcomes that matter.
+    </p>
+  </section>
+
+  <section id="services" class="section" aria-labelledby="services-title">
+    <h2 class="section-title" id="services-title">Our Services</h2>
+    <div class="services" role="list">
+      <div class="card" role="listitem">
+        <div class="icon">🌐</div>
+        <div>
+          <div class="card-title">Website Development</div>
+          <div class="card-desc">Responsive sites, web apps, e-commerce and CMS integrations.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛠️</div>
+        <div>
+          <div class="card-title">IT Support & Maintenance</div>
+          <div class="card-desc">Monitoring, helpdesk, backups and ongoing maintenance.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">☁️</div>
+        <div>
+          <div class="card-title">Cloud & Hosting</div>
+          <div class="card-desc">Cloud migrations, scalable hosting, and cost optimization.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔒</div>
+        <div>
+          <div class="card-title">Cyber Security</div>
+          <div class="card-desc">Pen testing, hardening, and incident response planning.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤖</div>
+        <div>
+          <div class="card-title">Business Automation</div>
+          <div class="card-desc">Automate tasks, integrations and workflows to save time.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">💡</div>
+        <div>
+          <div class="card-title">Technical Consulting</div>
+          <div class="card-desc">Architecture reviews, tech strategy and cloud cost audits.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px" class="testimonials">
+      <div class="testimonial">
+        <div style="font-size:14px;color:var(--muted)">"WreckedBoat modernized our site and reduced hosting costs by 40% — fast, professional team."</div>
+        <div class="by" style="margin-top:10px">— Priya R., Operations Lead</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" aria-labelledby="contact-title">
+    <h2 class="section-title" id="contact-title">Contact Us</h2>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p style="font-weight:700;color:var(--nav)">Get in touch</p>
+        <p>Email: <a href="mailto:Info@wreckedboat.in">Info@wreckedboat.in</a></p>
+        <p>Phone: +91-4035721253</p>
+        <p style="color:var(--muted);margin-top:8px">Prefer to describe your project? Send a brief summary and we'll respond within 24 hours.</p>
+      </div>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Contact form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+
+        <button class="submit" type="submit">Send Message</button>
+        <div id="formMsg" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div style="max-width:1100px;width:100%;display:flex;justify-content:space-between;align-items:center;padding:0 20px">
+    <div style="color:var(--muted)">© 2025 WreckedBoat LLP. All rights reserved.</div>
+    <div style="color:var(--muted);font-size:13px">Built with care • Fast • Secure</div>
+  </div>
+</footer>
+
+<script>
+  // Simple contact form handler (replace with real backend or Netlify Forms)
+  function handleSubmit(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const msgEl = document.getElementById('formMsg');
+
+    if(!name || !email || !message){
+      msgEl.textContent = 'Please fill all fields.';
+      return;
+    }
+
+    // For now we just show a success message and clear form.
+    msgEl.style.color = 'green';
+    msgEl.textContent = 'Thanks! Your message was sent. We will contact you soon.';
+    e.target.reset();
+
+    // TODO: Replace with real POST to your backend / Form endpoint.
+    console.info({name,email,message});
+  }
+</script>
+</body>
+</html>
